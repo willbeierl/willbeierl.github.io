@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Procedural Terrain Generation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0f0f;
+            color: #eaeaea;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        a {
+            color: #6db3ff;
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html">← Back to Portfolio</a>
+
+<h1>Procedural Terrain Generation System</h1>
+<h1>Will Beierl</h1>
+<h1>Egbaiyelo Moteniolaoluwa</h1>
+
+<p><strong>Tools:</strong> GLSL, WebGL, OpenGL</p>
+
+<h2>Project Goal</h2>
+<p>
+The goal of the project was to define some kind of terrain generation program. Any terrain would be fine but when we speak of terrain, we mostly refer to mountains just due to the variance in height maps and that calls for some interesting displays. 
+</p>
+
+<h2>Using Noise for Terrain Generation (will)</h2>
+<p>
+My task for the project was the terrain generation using noise functions. The project involved creating dynamic terrains that leverage the idea of layering multiple octaves of perlin noise. When the values of the noise are applied to the height (y) of the individual vertices of a plane, it will result in mountainous terrain. To better explain the process let's break it down starting with basics of different types of noise.
+</p>
+
+<h2>Regular noise:</h2>
+<img src="../assets/images/image1.png" alt="regular noise">
+<p>
+The values for each pixel are randomly picked between 0 and 1 for regular noise
+</p>
+
+<h2>Perlin noise (or simplex-noise; they are essentially the same, both designed by Ken Perlin):</h2>
+<img src="../assets/images/image2.png" alt="perlin noise">
+<p>
+Perlin noise is a more coherent type of noise where the changes from pixel to pixel occur more gradually.  For both perlin and simplex-noise the values range from -1 to 1.
+</p>
+<p>
+When taking a section of perlin noise and plotting the values between -1 and 1 on the y axis it looks roughly like mountains and valleys.  
+</p>
+<img src="../assets/images/image3.png" alt="graph1">
+<p>
+In an informative youtube video by Sebastian Lague, he delves into how the noise can be manipulated and layered using octaves to create finer details within the noise resulting in a more realistic mountainous terrain. 
+Key Parameters: 
+Amplitube - how high and low the noise goes
+Frequency - how bumpy or frequently the noise is.
+</p>
+<img src="../assets/images/image4.png" alt="graph2">
+<p>
+As you can see from the diagram the 1st octave defines the general shape of the terrain (mountains and valleys). The 2nd octave adds slightly more detail (the ‘boulders’). And the 3rd octave is for the small fine details (like ‘small rocks’). To achieve this with multiple octaves is a very simple concept: as octaves increase the amplitude is gradually lowered while the frequency is gradually increased. The variables Lacunarity and Persistence are the controls for the amp and freq in the algorithm.
+Using multiple octaves (around 8 or 9) I was able to achieve these terrain examples which I am pretty happy with the outcome.
+</p>
+<img src="../assets/images/image5.png" alt="terrain1">
+<img src="../assets/images/image6.png" alt="terrain2">
+<p>
+Now obviously there is a little more going on here to achieve these results for the terrain, which I will briefly explain. The first and most noticeable feature is the sea level. And the second additional feature I added is the mountain multiplier (clear distinction of the big mountains). To achieve both of these features was actually rather simple. I implemented a helper function to the algorithm called applyHeightCurve which, like the name suggests, curves the height value obtained from the noise at given thresholds. So, when the height >= the mountain threshold, gradually scale the value to increase the height of the mountain. 
+</p>
+<p>
+For more details about the terrain generation using noise check out Sebastian Lague’s video which was great for helping us understand the concept behind using noise in terrain generation.
+</p>
+
+</div>
+</body>
+</html>
