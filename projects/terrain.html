@@ -84,6 +84,55 @@ Now obviously there is a little more going on here to achieve these results for 
 For more details about the terrain generation using noise check out Sebastian Lague’s video which was great for helping us understand the concept behind using noise in terrain generation.
 </p>
 
+<h2>Structure (Egbaiyelo)</h2>
+<p>
+My Job was to populate Will’s noise data into the file structures and rendering formats.  
+</p>
+<p>
+I planned to make his terrain functions dynamic in put it in a class and make the renderer class too.The classes I made were: 
+</p>
+<p>
+Chunk Class - This class was made to call the generate Terrain function to get its data. It was also made in a way that chunks would be able to render anywhere and not just the center. It would basically be a child class to a larger renderer function that would call to render it based on the location of the player. Given we used noise, it was possible for the chunks to be discarded and reconstructed the exact same way. 
+</p>
+<img src="../assets/images/image7.png" alt="code">
+<p>
+Call to generate Terrain function by Will 
+</p>
+<p>
+Renderer Classes – They would manage multiple chunks. There were several iterations of this like AsyncRenderer as I tested different ideas, but the main one was Chunk Works.  
+</p>
+<p>
+What separates chunkworks from the rest is that the main worldrenderers was that they vanilla renderers were really slow as they loaded all their vertices as the player approached the boundaries of the chunk. The loading of surrounding chunks took > O(n3) time and so I tried to schedule the loads in the asyncRenderer so that they would finish at their own time and work in parallel. I learnt the hard way that Js has one thread and I couldn't even use compute shaders and so I had to fashion an abstraction called a web worker. This was able to do parallel processing that didn't stop the mainstream and so it has a structure of handlers, batching and promises to handle the construction of vertex Data. In a more advanced system, I would have more than one worker doing different parts of the construction process and I did plan on using it for sampling.
+</p>
+<img src="../assets/images/image8.png" alt="circles">
+<p>
+I also used a structure that allowed for render requests separate from load requests to make sure that there was little to no overhead when crossing a boundary. The smaller circle is the renderspace, the chunks to be rendered and the larger one is the load space which is where the chunks are preloaded to be rendered later. As the player crosses a boundary, the loaded chunks are gotten from the preloaded one and new ones are preloaded.
+</p>
+<p>
+WaterChunk – I initially had a uniform called Sealevel to be passed to the shader to use as a max function to get flat seas. I ended up choosing to just get a flat plane around the world to show water. This would leave the height to taper off in the water which would be helpful in sampling ocean textures. I also planned to map the seas and get a cool ocean effect like a Sebastian Lague video. 
+</p>
+<p>
+Frustrum – This was supposed to be a class that Id use to clip the back portion of the player just to increase the speed at which the frames are rendered and reduce overhead. It never got implemented. The idea of frustrum culling is very popular in rendering. 
+</p>
+<p>
+Control System - I made a control system for the assignment that allowed the user to use the terrain like a game and move around as such. It used the WASD format.
+</p>
+<h2>Other Ideas</h2>
+<p>
+We did plan on making some other things like  
+</p>
+<p>
+Texturing – Currently it just has the colors based on height which isn't intuitive but we were going to use the Normals in the fragment shader to get whether there’d be snow or grass on a surface. The fragment shader would have possibly had the texture values hardcoded. Everyone agrees on what color snow is, etc. The point was I didn't want to load textures when I was sampling going to be dealing with gradients and I was told I could use a lerp function to get a midpoint between gradients. 
+</p>
+<p>
+A Weather Biome System – This would allow for more dynamic looking terrain, rather than all grass, we could have snow and islandic regions. This would have been done with the noise. 
+</p>
+<p>
+Quadtrees possibly – This would be like the clipping which makes me think I wouldn't have needed it anyway. But I did think that this structure would be beneficial to allowing chunks to have dynamic values like biome, rather than trying to store the entire noise of the biome, we could store it in quads and dissect the tree till we have no constraints left.      
+</p>
+
+<a href="../index.html">← Back to Portfolio</a>
+    
 </div>
 </body>
 </html>
