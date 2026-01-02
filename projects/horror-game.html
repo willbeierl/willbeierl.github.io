@@ -93,8 +93,6 @@ the entire base shaders.
     <source src="../assets/videos/demoVideo1.mp4" type="video/mp4">
 </video>
 
-<img src="../assets/images/horror_materials.png" alt="Material and shader examples">
-
 <h2>Lighting & Atmosphere</h2>
 <p>
 Lighting played a critical role in defining the tone of the experience. I worked with
@@ -108,8 +106,14 @@ dynamic lighting, exposure control, and custom built volumetric fog to guide pla
 Procedural Content Generation (PCG) was used to create the environment efficiently.
 I tuned density, culling, and transform logic to stylize the world while
 avoiding unnecessary performance costs. I made use of UE5.7's new nanite voxelize fooliage
-feature to keep the overdraw of the scene manageable to optimize performance.
+feature to keep the overdraw of the scene manageable to help optimize performance. I Also sampled
+a spline points path in the PCG graph that outline a path around the map and subracted the tree and and grass generation
+so no trees or grass spawned in the path.
 </p>
+
+<video autoplay muted loop playsinline width="100%">
+    <source src="../assets/videos/demoVideo2.mp4" type="video/mp4">
+</video>
 
 <h2>AI, Animation & State Logic</h2>
 <p>
