@@ -82,10 +82,10 @@ and AI-driven character behavior.
 
 <h2>Materials & Shaders</h2>
 <p>
-I developed and modified on custom materials to support the horror atmosphere while
+I developed and modified custom materials to support the horror atmosphere while
 remaining performance conscious. This included controlling roughness, emissive
 values, and texture usage to ensure consistent lighting behavior across environments. 
-I made use of material instances extensively which allowed quick material tweaks without recompiling
+I made extensive use of material instances, allowing quick visual tweaks without recompiling
 the entire base shaders.
 </p>
 
@@ -107,9 +107,9 @@ dynamic lighting, exposure control, and custom built volumetric fog to guide pla
 <p>
 Procedural Content Generation (PCG) was used to create the environment efficiently.
 I tuned density, culling, and transform logic to stylize the world while
-avoiding unnecessary performance costs. I made use of UE5.7's new nanite voxelize fooliage
-feature to keep the overdraw of the scene low and to help optimize performance. I Also sampled
-spline points in the PCG graph to carve through the foliage and make a walkable path for the player.
+avoiding unnecessary performance costs. I made use of UE5.7’s Nanite voxelized foliage feature to reduce scene overdraw and
+improve performance. I also sampled spline points within the PCG graph to carve
+walkable paths for the player.
 </p>
 
 <video autoplay muted loop playsinline width="100%">
@@ -136,7 +136,7 @@ refining update logic.
 <h2>What I Learned / What I’d Do Next</h2>
 <p>
 This project taught me the importance of technical art as a balance between visual
-quality and performance. Given more time (I made this in under a month), I would further expand tooling/instancing for faster
+quality and performance. Given more time (this project was completed in under a month), I would further expand tooling and instancing for faster
 iteration and explore more shader driven effects to enhance atmosphere without significant runtime cost.
 </p>
 
