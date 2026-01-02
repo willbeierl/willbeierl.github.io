@@ -82,11 +82,11 @@ and AI-driven character behavior.
 
 <h2>Materials & Shaders</h2>
 <p>
-I developed and iterated on custom materials to support the horror atmosphere while
-remaining performance-conscious. This included controlling roughness, emissive
-values, and texture usage to ensure consistent lighting behavior across environments.
-Material instances were used extensively to allow rapid iteration without recompiling
-base shaders.
+I developed and modified on custom materials to support the horror atmosphere while
+remaining performance conscious. This included controlling roughness, emissive
+values, and texture usage to ensure consistent lighting behavior across environments. 
+I made use of material instances extensively which allowed quick material tweaks without recompiling
+the entire base shaders.
 </p>
 
 <img src="../assets/images/horror_materials.png" alt="Material and shader examples">
@@ -94,18 +94,17 @@ base shaders.
 <h2>Lighting & Atmosphere</h2>
 <p>
 Lighting played a critical role in defining the tone of the experience. I worked with
-dynamic lighting, exposure control, and fog to guide player attention and create tension.
-Care was taken to balance visual quality with real-time performance constraints.
+dynamic lighting, exposure control, and custom built volumetric fog to guide player attention and create tension.
 </p>
 
 <img src="../assets/images/horror_lighting.png" alt="Lighting and atmosphere">
 
 <h2>Procedural Systems & PCG</h2>
 <p>
-Procedural Content Generation was used to populate environments efficiently.
-I tuned density, culling, and transform logic to maintain visual consistency while
-avoiding unnecessary performance costs. Iteration speed and scalability were key
-considerations in these systems.
+Procedural Content Generation (PCG) was used to create the environment efficiently.
+I tuned density, culling, and transform logic to stylize the world while
+avoiding unnecessary performance costs. I made use of UE5.7's new nanite voxelize fooliage
+feature to keep the overdraw of the scene manageable to optimize performance.
 </p>
 
 <h2>AI, Animation & State Logic</h2>
@@ -118,7 +117,7 @@ between states and reliable communication between animation, AI, and gameplay lo
 <h2>Optimization & Problem Solving</h2>
 <p>
 Throughout development, I identified and addressed performance bottlenecks related
-to lighting, materials, and procedural systems. Debugging tools and profiling were
+to lighting, materials, and procedural systems. Debugging tools were
 used to guide decisions such as simplifying materials, adjusting PCG density, and
 refining update logic.
 </p>
