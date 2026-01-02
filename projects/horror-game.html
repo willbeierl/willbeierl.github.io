@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unreal Engine Horror Game | Technical Art Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0f0f;
+            color: #eaeaea;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        a {
+            color: #6db3ff;
+            text-decoration: none;
+        }
+        img, video {
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        .tools {
+            font-style: italic;
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html">← Back to Portfolio</a>
+
+<h1>Unreal Engine Horror Game</h1>
+<p class="tools">
+Unreal Engine 5 · Materials · Shaders · Blueprints · State Trees · PCG · Optimization
+</p>
+
+<h2>Overview</h2>
+<p>
+This project is a first-person horror game developed in Unreal Engine 5 with a strong
+focus on atmosphere, real-time lighting, and performance-conscious systems.
+My primary contributions centered on technical art workflows, including materials,
+procedural systems, lighting, optimization, and AI integration.
+</p>
+
+<h2>Gameplay / Visual Demo</h2>
+
+<video controls preload="metadata">
+    <source src="../assets/videos/horror_demo.mp4" type="video/mp4">
+</video>
+
+<p><em>
+Gameplay footage demonstrating lighting, materials, procedural environment systems,
+and AI-driven character behavior.
+</em></p>
+
+<h2>Technical Focus Areas</h2>
+<ul>
+    <li>Custom material and shader workflows</li>
+    <li>Real-time lighting and atmosphere control</li>
+    <li>Procedural environment generation (PCG)</li>
+    <li>AI state logic and animation integration</li>
+    <li>Performance optimization and debugging</li>
+</ul>
+
+<h2>Materials & Shaders</h2>
+<p>
+I developed and iterated on custom materials to support the horror atmosphere while
+remaining performance-conscious. This included controlling roughness, emissive
+values, and texture usage to ensure consistent lighting behavior across environments.
+Material instances were used extensively to allow rapid iteration without recompiling
+base shaders.
+</p>
+
+<img src="../assets/images/horror_materials.png" alt="Material and shader examples">
+
+<h2>Lighting & Atmosphere</h2>
+<p>
+Lighting played a critical role in defining the tone of the experience. I worked with
+dynamic lighting, exposure control, and fog to guide player attention and create tension.
+Care was taken to balance visual quality with real-time performance constraints.
+</p>
+
+<img src="../assets/images/horror_lighting.png" alt="Lighting and atmosphere">
+
+<h2>Procedural Systems & PCG</h2>
+<p>
+Procedural Content Generation was used to populate environments efficiently.
+I tuned density, culling, and transform logic to maintain visual consistency while
+avoiding unnecessary performance costs. Iteration speed and scalability were key
+considerations in these systems.
+</p>
+
+<h2>AI, Animation & State Logic</h2>
+<p>
+NPC behavior was implemented using Unreal’s State Tree system, integrating movement,
+animation states, and gameplay triggers. I focused on ensuring clean transitions
+between states and reliable communication between animation, AI, and gameplay logic.
+</p>
+
+<h2>Optimization & Problem Solving</h2>
+<p>
+Throughout development, I identified and addressed performance bottlenecks related
+to lighting, materials, and procedural systems. Debugging tools and profiling were
+used to guide decisions such as simplifying materials, adjusting PCG density, and
+refining update logic.
+</p>
+
+<h2>What I Learned / What I’d Do Next</h2>
+<p>
+This project reinforced the importance of technical art as a balance between visual
+quality and performance. Given more time, I would further expand tooling for faster
+iteration and explore additional shader-driven effects to enhance atmosphere without
+significant runtime cost.
+</p>
+
+</div>
+</body>
+</html>
