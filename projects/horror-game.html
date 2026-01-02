@@ -108,9 +108,9 @@ dynamic lighting, exposure control, and custom built volumetric fog to guide pla
 Procedural Content Generation (PCG) was used to create the environment efficiently.
 I tuned density, culling, and transform logic to stylize the world while
 avoiding unnecessary performance costs. I made use of UE5.7's new nanite voxelize fooliage
-feature to keep the overdraw of the scene manageable to help optimize performance. I Also sampled
-a spline points path in the PCG graph that outline a path around the map and subracted the tree and and grass generation
-so no trees or grass spawned in the path.
+feature to keep the overdraw of the scene low and to help optimize performance. I Also sampled
+spline points in the PCG graph to create a walkable path for the player that has no grass/trees
+spawning within the spline.
 </p>
 
 <video autoplay muted loop playsinline width="100%">
@@ -134,11 +134,12 @@ refining update logic.
 
 <h2>What I Learned / What I’d Do Next</h2>
 <p>
-This project reinforced the importance of technical art as a balance between visual
-quality and performance. Given more time, I would further expand tooling for faster
-iteration and explore additional shader-driven effects to enhance atmosphere without
-significant runtime cost.
+This project taught me the importance of technical art as a balance between visual
+quality and performance. Given more time (I made this in under a month), I would further expand tooling/instancing for faster
+iteration and explore more shader driven effects to enhance atmosphere without significant runtime cost.
 </p>
+
+<a href="../index.html">← Back to Portfolio</a>
 
 </div>
 </body>
